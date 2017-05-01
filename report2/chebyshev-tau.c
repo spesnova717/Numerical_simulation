@@ -1,13 +1,9 @@
 #include <stdio.h>
 #include <math.h>
-#define chebytauterm 8
-	const int steps = 21;
-	//const int chebytauterm = 8;
+#define Expansion_factor 2
 
-//include and init n for gjsolver
+int n = (Expansion_factor+2)/2;
 
-	const int n = (chebytauterm+2)/2;
-    //int n = (chebytauterm+2)/2;
 
 //prototype of functions
 	void gjsolver(double[][n+1], double[n+1], double[n+1]);
@@ -37,46 +33,46 @@ int main(void){
 	x = -1.0;
 	dx= (1.0-(-1.0))/20;
 
-	double k_odd[(chebytauterm+2)/2 + 1][(chebytauterm+2)/2 + 1];
-	double f_odd[(chebytauterm+2)/2 + 1];
-	double a_odd[(chebytauterm+2)/2 + 1];
+	double k_odd[(Expansion_factor+2)/2 + 1][(Expansion_factor+2)/2 + 1];
+	double f_odd[(Expansion_factor+2)/2 + 1];
+	double a_odd[(Expansion_factor+2)/2 + 1];
 
-	double k_even[(chebytauterm+2)/2 + 1][(chebytauterm+2)/2 + 1];
-	double f_even[(chebytauterm+2)/2 + 1];
-	double a_even[(chebytauterm+2)/2 + 1];
+	double k_even[(Expansion_factor+2)/2 + 1][(Expansion_factor+2)/2 + 1];
+	double f_even[(Expansion_factor+2)/2 + 1];
+	double a_even[(Expansion_factor+2)/2 + 1];
 	
-	double CL[chebytauterm+1];	//C-Legendre polynomials
+	double CL[Expansion_factor+1];	//C-Legendre polynomials
 		CL[0]=2.0;
-		for(i=1;i<=chebytauterm;i++){
+		for(i=1;i<=Expansion_factor;i++){
 			CL[i]=1.0;
 			}
 	
-	double T[chebytauterm+1];	//Chebyshev polynomials
+	double T[Expansion_factor+1];	//Chebyshev polynomials
 		T[0]= 1.0;
 		T[1]= x;
-		for(i=2; i<=chebytauterm; i++){
+		for(i=2; i<=Expansion_factor; i++){
 			T[i]=2.0*x*T[i-1]-T[i-2];
 			}
 			
-	double a_merged[chebytauterm];
+	double a_merged[Expansion_factor];
 
 //-----------main initializers end-----------
 
 
 //Making the Matrix for chebyshev-tau-method
 	//zero initialize k matrix and f vector
-	for(i=0; i<(chebytauterm+2)/2 + 1; i++){
+	for(i=0; i<(Expansion_factor+2)/2 + 1; i++){
 		f_odd[i]=0;				//vector f_odd[i] init.
 		f_even[i]=0;			//vector f_even[i] init.
-		for(j=0; j<(chebytauterm+2)/2 + 1 ; j++){
+		for(j=0; j<(Expansion_factor+2)/2 + 1 ; j++){
 			k_odd[i][j]=0;			//matrix k_odd[i][j] init.
 			k_even[i][j]=0;			//matrix k_even[i][j] init.
 			}
 		}
 
 	//calculate components of k matrix and f vector
-	for(i=1; i<=(chebytauterm+2)/2; i++){
-		for(j=1; j<=(chebytauterm+2)/2; j++){			
+	for(i=1; i<=(Expansion_factor+2)/2; i++){
+		for(j=1; j<=(Expansion_factor+2)/2; j++){			
 			if(i==1){
 				f_odd[i]	=(1.0/2.0);		//first row of rightside vectors = 0.5
 				f_even[i]	=(1.0/2.0);
@@ -111,7 +107,7 @@ int main(void){
 	gjsolver(k_odd,f_odd,a_odd);		//solve the matrix using GJsolver
 	gjsolver(k_even,f_even,a_even);		//solve the matrix using GJsolver
 
-	for(i=1;i<=chebytauterm;i++){
+	for(i=1;i<=Expansion_factor;i++){
 		if(i%2){a_merged[i]=a_odd[j];}
 		else{a_merged[i]=a_even[j];}
 		}
