@@ -5,7 +5,7 @@
 
 int main(void){
     int i,j;
-    double u[N+1][N+1];
+    double u[N+1][N+1];	//kai
     double theta = 30.0;
     double alpha=theta*M_PI/180.0;
     double dx=1.0/N;

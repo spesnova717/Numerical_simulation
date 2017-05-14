@@ -33,6 +33,5 @@ int main(void){
     for(j=0; j=<N; j++){
         printf("%lf\n",u[0][j]);
     }
-
 }
 
