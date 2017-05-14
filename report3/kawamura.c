@@ -1,8 +1,8 @@
+//coredump version.
 #include <stdio.h>
 #include <math.h>
 #define N 50
 #define M 5
-
 int main(void){
     int i,j,k;
     double u[N+3][N+3];
@@ -30,12 +30,12 @@ int main(void){
     for(k=0; k<=1000; k++){
         for(i=2; i<=N+1; i++){
             for(j=2; j<=N+1; j++){
-                //if(N==0){
-                //    u[i+1][j]=0;
-	        //        u[i+2][j]=0;
-	        //        u[i][j+1]=0;
-	        //        u[i][j+2]=0;
-                //}
+                if(N==0){
+                    u[i+1][j]=0;
+	                u[i+2][j]=0;
+	                u[i][j+1]=0;
+	                u[i][j+2]=0;
+                }
                 if(i==N){
                     u[i+2][j]=u[i-2][j];
                 }
