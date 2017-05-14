@@ -11,7 +11,7 @@ int main(void){
     double dx=1.0/N;
     double dy=1.0/N;
 
-    for(i=0; i<=N; i++){
+    for(i=0; i<=N; i++){	//initialize.
         for(j=0; j<=N; j++){
             u[i][j] = 0.0;
         }
@@ -44,6 +44,5 @@ int main(void){
                 u[40][j],u[41][j],u[42][j],u[43][j],u[44][j],u[45][j],u[46][j],u[47][j],u[48][j],u[49][j],u[50][j]);
 
     }
-
 }
 
