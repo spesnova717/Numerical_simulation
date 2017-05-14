@@ -37,7 +37,7 @@ int main(void){
 	                u[i][j+2]=0;
                 }
                 if(i==N){
-                    u[i+2][j)]=u[i-2][j];
+                    u[i+2][j]=u[i-2][j];
                 }
                 if(i==N+1){
                     u[i+1][j]=u[i-1][j];
@@ -50,12 +50,11 @@ int main(void){
                     u[i][j+1]=u[i][j-1];
 	                u[i][j+1]=u[i][j-2];
                 }
-                	u[i][j]=(dy*cos(alpha)*(-u[i+2][j]+2*u[i+1][j]
-                    +10*u[i-1][j]-2*u[i-2][j])
-                    +dx*sin(alpha)*(-u[i][j+2]+2*u[i][j+1]
-                    +10*u[i][j-1]-2*u[i][j-2]))
-                    /(9.0*(dy*cos(alpha)+dx*sin(alpha)));
-
+                    u[i][j]=(dy*cos(alpha)*(-u[i+2][j]+2*u[i+1][j]
+                    + 10*u[i-1][j]-2*u[i-2][j])
+                    + dx*sin(alpha)*(-u[i][j+2]+2*u[i][j+1]
+                    + 10*u[i][j-1]-2*u[i][j-2]))
+                    / (9.0*(dy*cos(alpha)+dx*sin(alpha)));
             }
         }
     }
@@ -74,6 +73,5 @@ int main(void){
                 u[40][j],u[41][j],u[42][j],u[43][j],u[44][j],u[45][j],u[46][j],u[47][j],u[48][j],u[49][j],u[50][j]);
 
     }
-
 }
 
