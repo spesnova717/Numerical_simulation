@@ -1,4 +1,4 @@
-Numerical_simulation  
+#Numerical_simulation  
 report1 Galerkin Method  
 report2 ChebyShev Tau Method  
 report3 Upwind Method  
