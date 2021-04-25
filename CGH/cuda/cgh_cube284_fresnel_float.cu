@@ -117,7 +117,7 @@ int main(){
     //scanf("%s",filename);
 
     //fp=fopen(filename,"rb");
-    fp=fopen("cube284.3d","rb");
+    fp=fopen("cubex.3d","rb");
     if(fp==NULL){
       printf("File Open ERROR\n");
     }
